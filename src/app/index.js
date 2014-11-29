@@ -1,11 +1,14 @@
 'use strict';
 
+var _ = require('lodash'); 
+
 require('angular');
 require('angular-animate');
 require('angular-cookies');
-require('restangular');
+require('angular-touch');
+require('angular-sanitize');
+require('restangular'); 
 require('angular-ui-router');
-
 require('../modules/help');
 
 angular.module('browserifyTest', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router'])

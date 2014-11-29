@@ -1,4 +1,13 @@
 module.exports = function(app){
 
-    console.log(app);
-}
+    app.config(['$stateProvider', function($stateProvider){
+
+        $stateProvider
+            .state('example',{
+                url: '/',
+                templateUrl: 'src/modules/example/index.html',
+                controller: require('./example.ctrl.js')
+            })
+
+    }])
+};

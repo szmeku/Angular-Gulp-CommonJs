@@ -34,7 +34,7 @@ gulp.task('bundler-watch', function () {
             .on("error", function (err) {
                 gutil.log("Browserify error:", err);
             })
-            .pipe(source('bundle.js'))
+            .pipe(source('app.js'))
             .pipe(buffer())
             .pipe(gulp.dest(distPath));
     }

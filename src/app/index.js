@@ -1,26 +1,15 @@
 'use strict';
 
-// todo: write it better
-window._ = require('lodash'); 
+var app = angular.module('browserifyTest', [
+    'ngAnimate',
+    'ngCookies',
+    'ngTouch',
+    'ngSanitize',
+    'restangular',
+    'ui.router'
 
-require('angular');
-require('angular-animate');
-require('angular-cookies');
-require('angular-touch');
-require('angular-sanitize');
-require('restangular'); 
-require('angular-ui-router');
-
-var app = angular.module('browserifyTest', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-    $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
-      });
-
+]).config(function ($urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
-  });
+});
 
 require('../modules/example')(app);

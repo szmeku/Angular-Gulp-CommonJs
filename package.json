@@ -6,6 +6,7 @@
     "browserify": "^6.3.3",
     "debowerify": "^1.1.1",
     "gulp-util": "^3.0.1",
+    "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.0.0",
     "watchify": "^2.1.1"
   },

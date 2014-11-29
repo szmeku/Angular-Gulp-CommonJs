@@ -2,16 +2,18 @@
 
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
+    uglify = require('gulp-uglify'),
     source = require('vinyl-source-stream'),
+    buffer = require('vinyl-buffer'),
     browserify = require('browserify'),
     debowerify = require('debowerify'),
     watchify = require('watchify');
 
-var distPath = './src';
+var distPath = './';
 
 gulp.task('bundler-watch', function () {
 
-    var bundler = watchify(browserify('./src/app/index.js', {debug: true}).transform(debowerify));
+    var bundler = watchify(browserify('./src/app/index.js',{debug: true}).transform(debowerify));
 
 
     bundler.on("log", function (msg) {
@@ -33,6 +35,7 @@ gulp.task('bundler-watch', function () {
                 gutil.log("Browserify error:", err);
             })
             .pipe(source('bundle.js'))
+            .pipe(buffer())
             .pipe(gulp.dest(distPath));
     }
 

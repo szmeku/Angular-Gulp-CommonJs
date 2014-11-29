@@ -1,6 +1,7 @@
 'use strict';
 
-var _ = require('lodash'); 
+// todo: write it better
+window._ = require('lodash'); 
 
 require('angular');
 require('angular-animate');
@@ -9,9 +10,8 @@ require('angular-touch');
 require('angular-sanitize');
 require('restangular'); 
 require('angular-ui-router');
-require('../modules/help');
 
-angular.module('browserifyTest', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router'])
+var app = angular.module('browserifyTest', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
@@ -21,5 +21,6 @@ angular.module('browserifyTest', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
       });
 
     $urlRouterProvider.otherwise('/');
-  })
-;
+  });
+
+require('../modules/example')(app);
